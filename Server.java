@@ -3,6 +3,11 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.*;
 
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
+
 
 class Server{
 
@@ -11,6 +16,10 @@ class Server{
 
     BufferedReader br; //Reading
     PrintWriter out; // Writing
+
+    private JLabel heading = new JLabel("Server Area");
+    private JTextArea messageArea = new JTextArea();
+    private JTextField messageInput = new JTextField();
 
     public Server(){
         try{
@@ -58,6 +67,7 @@ class Server{
 
     public void startWriting(){
         Runnable r2=()->{
+            System.out.println("Writer started....");
             try{
             while(!socket.isClosed()){
                 
